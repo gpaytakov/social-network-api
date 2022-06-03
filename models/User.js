@@ -1,10 +1,11 @@
 const { Schema, model, Types } = require("mongoose");
-const Thought = require("./Thought");
+// const Thought = require("./Thought");
 
 const UserSchema = new Schema(
   {
     _id: {
-      type: Schema.ObjectId,
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
     },
     username: {
       type: String,
