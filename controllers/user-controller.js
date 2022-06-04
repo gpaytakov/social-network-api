@@ -72,6 +72,42 @@ const userController = {
       })
       .catch((err) => res.status(400).json(err));
   },
+
+  // add friend
+  async addFriend({ params }, res) {
+    let user = await User.findById({ _id: params.id });
+    let friend = await User.findById({ _id: params.friendId });
+
+    let newUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      { $push: { friends: friend._id } },
+      { new: true, runValidators: true }
+    );
+    res.json(newUser);
+  },
+
+  // // remove friend
+  // removeFriend({ params }, res) {
+  //   User.findOneAndDelete({ _id: params.commentId })
+  //     .then((deletedFriend) => {
+  //       if (!deletedFriend {
+  //         return res.status(404).json({ message: "No friend with this id!" });
+  //       }
+  //       return User.findOneAndUpdate(
+  //         { _id: params.userId },
+  //         { $pull: { friends: params.friendId } },
+  //         { new: true }
+  //       );
+  //     })
+  //     .then((dbUserData) => {
+  //       if (!dbUserData) {
+  //         res.status(404).json({ message: "No user found with this id!" });
+  //         return;
+  //       }
+  //       res.json(dbUserData);
+  //     })
+  //     .catch((err) => res.json(err));
+  // },
 };
 
 module.exports = userController;
