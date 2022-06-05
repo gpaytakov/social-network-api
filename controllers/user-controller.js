@@ -83,6 +83,10 @@ const userController = {
       { $push: { friends: friend._id } },
       { new: true, runValidators: true }
     );
+    if (!user || !friend) {
+      res.status(404).json({ message: "No User found with this id!" });
+      return;
+    }
     res.json(newUser);
   },
 
@@ -95,30 +99,12 @@ const userController = {
       { $pull: { friends: params.friendId } },
       { new: true, runValidators: true }
     );
+    if (!newUser) {
+      res.status(404).json({ message: "No User found with this id!" });
+      return;
+    }
     res.json(newUser);
   },
-
-  // removeFriend({ params }, res) {
-  //   User.findOneAndDelete({ _id: params.commentId })
-  //     .then((deletedFriend) => {
-  //       if (!deletedFriend {
-  //         return res.status(404).json({ message: "No friend with this id!" });
-  //       }
-  //       return User.findOneAndUpdate(
-  //         { _id: params.userId },
-  //         { $pull: { friends: params.friendId } },
-  //         { new: true }
-  //       );
-  //     })
-  //     .then((dbUserData) => {
-  //       if (!dbUserData) {
-  //         res.status(404).json({ message: "No user found with this id!" });
-  //         return;
-  //       }
-  //       res.json(dbUserData);
-  //     })
-  //     .catch((err) => res.json(err));
-  // },
 };
 
 module.exports = userController;
