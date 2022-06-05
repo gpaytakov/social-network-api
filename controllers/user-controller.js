@@ -86,7 +86,18 @@ const userController = {
     res.json(newUser);
   },
 
-  // // remove friend
+  // remove friend
+  async removeFriend({ params }, res) {
+    // let user = await User.findById({ _id: params.id });
+
+    let newUser = await User.findByIdAndUpdate(
+      { _id: params.id },
+      { $pull: { friends: params.friendId } },
+      { new: true, runValidators: true }
+    );
+    res.json(newUser);
+  },
+
   // removeFriend({ params }, res) {
   //   User.findOneAndDelete({ _id: params.commentId })
   //     .then((deletedFriend) => {
