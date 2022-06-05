@@ -65,7 +65,7 @@ const thoughtController = {
       })
       .catch((err) => res.status(400).json(err));
   },
-
+  // add reaction to a thought
   addReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
@@ -115,37 +115,6 @@ const thoughtController = {
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => res.json(err));
   },
-
-  // add reaction
-  // async addReaction({ params }, res) {
-  //   let thought = await Thought.findById({ _id: params.id });
-  // let reaction = await Thought.create({ _id: params.reactionId });
-
-  // let newThought = await User.findOneAndUpdate(
-  //   { _id: thought._id },
-  //   { $push: { reactions: reaction._id } },
-  //   { new: true, runValidators: true }
-  // );
-  // if (!thought || !reaction) {
-  //   res.status(404).json({ message: "No thought found with this id!" });
-  //   return;
-  // }
-  // res.json(newThought);
-  // },
-
-  // remove reaction
-  // async removeReaction({ params }, res) {
-  //   let newThought = await Thought.findByIdAndUpdate(
-  //     { _id: params.id },
-  //     { $pull: { reactions: params.reactionId } },
-  //     { new: true, runValidators: true }
-  //   );
-  //   if (!newThought) {
-  //     res.status(404).json({ message: "No thought found with this id!" });
-  //     return;
-  //   }
-  //   res.json(newThought);
-  // },
 };
 
 module.exports = thoughtController;
