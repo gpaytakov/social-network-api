@@ -15,7 +15,11 @@ SO THAT my website can handle large amounts of unstructured data
 ```
 
 ## Walkthrough videos
-![The Walkthrough video for GET routes to return all users and all thoughts being tested in Insomnia](https://watch.screencastify.com/v/aISsSURGYoHE2X80odX7)
-
+[The Walkthrough video for GET routes to return all users and all thoughts being tested in Insomnia](https://watch.screencastify.com/v/aISsSURGYoHE2X80odX7)
+[The walkthrough video for GET routes for a single user and a single thought being tested in Insomnia](https://watch.screencastify.com/v/xD7FmaOmCiSVQGAtTbnG)
+[The walkthrough video to demonstrate POST PUT and DELETE routes for users being tested in Insomnia](https://watch.screencastify.com/v/G0nB1h8myZTaUzLV9b9g)
+[The walkthrough video to demonstrate POST PUT and DELETE routes for thoughts being tested in Insomnia](https://watch.screencastify.com/v/ILy7yGDLVQTiv4zQysi3)
+[Walkthrough video to demonstrate POST and DELETE routes for a users friend list being tested in Insomnia](https://watch.screencastify.com/v/qfGXFHVIslyeD3BmXMAS)
+[Walkthrough video to demonstrate POST and DELETE routes for reactions to thoughts being tested in Insomnia](https://watch.screencastify.com/v/V8fksvab29hOVS3zADaz)
 
 ## Created by Guvanchmyrat Paytakov
